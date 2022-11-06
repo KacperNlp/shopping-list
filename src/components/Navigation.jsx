@@ -5,7 +5,7 @@ import "./Navigation.css";
 const Navigation = () => {
   const appLinks = [
     {
-      name: "Home",
+      name: "Shopping list",
       path: "/",
     },
     {
