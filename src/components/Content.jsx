@@ -38,7 +38,7 @@ class Content extends Component {
       return;
     }
 
-    const newCart = this.updateCart(name, price);
+    const newCart = this.updateCartAfterAddingProduct(name, price);
 
     this.setState({
       wallet: newWalletValue,
@@ -46,19 +46,30 @@ class Content extends Component {
     });
   };
 
-  updateCart = (name, price) => {
+  removeProductFromCart = (name, price) => {
+    const { wallet } = this.state;
+
+    const newCart = this.updateCartAfterRemovingProduct(name, price);
+
+    this.setState({
+      wallet: wallet + price,
+      cart: newCart,
+    });
+  };
+
+  updateCartAfterAddingProduct = (name, price) => {
     const { cart } = this.state;
 
-    if (!cart || !cart.filter((prodcut) => prodcut.name === name).length)
+    if (!cart || !cart.filter((product) => product.name === name).length)
       return [...cart, { name, price, count: 1 }];
 
     const newCart = cart.map(
-      ({ nameOfProductInCart, priceOfProductInCart, count }) => {
+      ({ name: nameOfProductInCart, price: priceOfProductInCart, count }) => {
         if (nameOfProductInCart === name) {
           return {
             name: nameOfProductInCart,
             price: priceOfProductInCart + price,
-            count: count++,
+            count: ++count,
           };
         }
 
@@ -69,6 +80,36 @@ class Content extends Component {
         };
       }
     );
+
+    return newCart;
+  };
+
+  updateCartAfterRemovingProduct = (name, price) => {
+    const { cart } = this.state;
+
+    const newCart = cart.map(
+      ({ name: nameOfProductInCart, price: priceOfProductInCart, count }) => {
+        if (nameOfProductInCart === name) {
+          return {
+            name: nameOfProductInCart,
+            price: priceOfProductInCart - price,
+            count: --count,
+          };
+        }
+
+        return {
+          name: nameOfProductInCart,
+          price: priceOfProductInCart,
+          count,
+        };
+      }
+    );
+
+    newCart.forEach((product, index) => {
+      if (name === product.name && !product.count) {
+        newCart.splice(index, 1);
+      }
+    });
 
     return newCart;
   };
@@ -86,7 +127,15 @@ class Content extends Component {
               <Shop products={products} addToCart={this.addProdcutToCart} />
             }
           ></Route>
-          <Route path="/" element={<ShoppingList cart={cart} />}></Route>
+          <Route
+            path="/"
+            element={
+              <ShoppingList
+                cart={cart}
+                removeProductFromCart={this.removeProductFromCart}
+              />
+            }
+          ></Route>
         </Routes>
       </div>
     );

@@ -1,0 +1,10 @@
+.shopping-list-prodcut {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shopping-list-prodcut-properties {
+    display: flex;
+    grid-gap: 20px;
+}

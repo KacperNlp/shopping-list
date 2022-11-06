@@ -12,6 +12,7 @@ const Product = ({ name, price, addToCart }) => {
         functionOnClick={() => {
           addToCart(name, price);
         }}
+        classes="button-add"
       />
     </li>
   );

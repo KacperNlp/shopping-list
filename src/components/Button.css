@@ -12,3 +12,23 @@
     color: #474E68;
     cursor: pointer;
 }
+
+.button-delete {
+    color: red;
+    border-color: red;
+}
+
+.button-delete:hover {
+    background: red;
+    color: #fff;
+}
+
+.button-add {
+    color: green;
+    border-color: green;
+}
+
+.button-add:hover {
+    background: green;
+    color: #fff;
+}
