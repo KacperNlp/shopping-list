@@ -1,3 +1,13 @@
+.shopping-list-container-with-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shopping-list-container-message {
+    text-transform: uppercase;
+}
+
 .shopping-list {
     padding: 0;
     list-style: none;

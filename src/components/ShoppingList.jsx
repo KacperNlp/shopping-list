@@ -1,8 +1,11 @@
+import React, { useEffect, useState } from "react";
 import ShoppingListProduct from "./ShoppingListProduct";
 
 import "./ShoppingList.css";
 
 const ShoppingList = ({ cart, removeProductFromCart }) => {
+  const [cartSummary, setCartSummary] = useState(0);
+
   const productsInCart = cart.map(({ name, price, count }) => {
     return (
       <ShoppingListProduct
@@ -15,7 +18,25 @@ const ShoppingList = ({ cart, removeProductFromCart }) => {
     );
   });
 
-  const cartSummary = 200;
+  useEffect(() => {
+    let newCartSummary = 0;
+
+    cart.forEach(({ price }) => {
+      newCartSummary += price;
+    });
+
+    setCartSummary(newCartSummary);
+  });
+
+  if (!cartSummary) {
+    return (
+      <div className="shopping-list-container shopping-list-container-with-message">
+        <p className="shopping-list-container-message">
+          You don't have any products!
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="shopping-list-container">
