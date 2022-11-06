@@ -6,3 +6,10 @@
     border: 1px solid #414359;
     box-shadow: 0 0 20px rgba(0,0,0, .2);
 }
+
+
+@media (min-width: 650px) {
+    .content:has(> .wallet) {
+        width: 400px;
+    }
+}

@@ -1,0 +1,16 @@
+.wallet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.wallet-header {
+    font-size: 22px;
+}
+
+.wallet-money {
+    font-size: 36px;
+    letter-spacing: 1px;
+}

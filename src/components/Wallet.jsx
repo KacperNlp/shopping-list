@@ -1,7 +1,10 @@
+import "./Wallet.css";
+
 const Wallet = ({ money }) => {
   return (
     <div className="wallet">
-      <p>Wallet: {money}</p>
+      <p className="wallet-header">Wallet:</p>
+      <span className="wallet-money">{money}$</span>
     </div>
   );
 };
