@@ -1,0 +1,8 @@
+.content {
+    width: 90%;
+    height: 90%;
+    padding: 10px;
+    background: #474E68;
+    border: 1px solid #414359;
+    box-shadow: 0 0 20px rgba(0,0,0, .2);
+}

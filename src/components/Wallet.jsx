@@ -1,7 +1,7 @@
 const Wallet = ({ money }) => {
   return (
     <div className="wallet">
-      <p>Wallet: ${money}</p>
+      <p>Wallet: {money}</p>
     </div>
   );
 };

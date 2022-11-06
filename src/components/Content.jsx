@@ -3,6 +3,8 @@ import Shop from "./Shop";
 import ShoppingList from "./ShoppingList";
 import Wallet from "./Wallet";
 
+import "./Content.css";
+
 const Content = () => {
   return (
     <div className="content">

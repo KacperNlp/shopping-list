@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import "./Navigation.css";
+
 const Navigation = () => {
   const appLinks = [
     {
@@ -17,11 +19,13 @@ const Navigation = () => {
   ];
 
   return (
-    <nav>
-      <ul>
+    <nav className="navigation">
+      <ul className="navigation-list">
         {appLinks.map((link, id) => (
-          <li key={id}>
-            <Link to={link.path}>${link.name}</Link>
+          <li key={id} className="navigation-element">
+            <Link to={link.path} className="navigation-element-link">
+              {link.name}
+            </Link>
           </li>
         ))}
       </ul>
