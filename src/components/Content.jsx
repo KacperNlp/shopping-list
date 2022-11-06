@@ -49,7 +49,7 @@ class Content extends Component {
   updateCart = (name, price) => {
     const { cart } = this.state;
 
-    if (!cart || cart.filter((prodcut) => prodcut.name === name).length)
+    if (!cart || !cart.filter((prodcut) => prodcut.name === name).length)
       return [...cart, { name, price, count: 1 }];
 
     const newCart = cart.map(

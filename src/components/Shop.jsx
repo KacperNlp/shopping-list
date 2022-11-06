@@ -1,19 +1,20 @@
 import Product from "./Product";
 
+import "./Shop.css";
+
 const Shop = ({ products, addToCart }) => {
   const productsList = products.map((product, id) => (
-    <li className="shop-product" key={id}>
-      <Product
-        name={product.name}
-        price={product.price}
-        addToCart={addToCart}
-      />
-    </li>
+    <Product
+      name={product.name}
+      price={product.price}
+      addToCart={addToCart}
+      key={id}
+    />
   ));
 
   return (
     <div className="shop">
-      <ul>{productsList}</ul>
+      <ul className="shop-list">{productsList}</ul>
     </div>
   );
 };

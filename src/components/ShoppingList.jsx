@@ -1,4 +1,4 @@
-import ShoppingListProduct from "./ShoppingListProdcut";
+import ShoppingListProduct from "./ShoppingListProduct";
 
 const ShoppingList = ({ cart }) => {
   const productsInCart = cart.map(({ name, price, count }) => {
